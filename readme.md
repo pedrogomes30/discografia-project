@@ -22,5 +22,19 @@ Para as demais ações você pode adotar o modelo de design que preferir.
 
 <h3>exemplo de interface:</h3>
 
-<img src='https://github.com/pedrogomes30/pos-project/blob/master/docs/Diagrams/Database%20Diagram/pos_system.png'/>
+<img src='https://github.com/pedrogomes30/discografia-project/blob/master/Docs/img/interface.png'/>
+
+<h3> Caracteristicas do projeto</h3>
+ambiente do back-end:
+    - PHP com laravel;
+    - banco de dados Mysql;
+    - comunicação via JWT;
+
+ambiente do Front-end:
+    - Javascript usando Vue2;
+    - interface vuetify2;
+    - vuex;
+    - vue-router;
+
+<h3> Planejamento do banco de dados</h3>
 
