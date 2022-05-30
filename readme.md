@@ -27,7 +27,7 @@ Para as demais ações você pode adotar o modelo de design que preferir.
 <h3> Caracteristicas do projeto</h3>
 
 - ambiente do back-end:
-    - PHP com laravel;
+    - PHP com laravel 9;
     - banco de dados Mysql;
     - comunicação via JWT (?); //validar se existe a necessidade de implementar uma API segura neste desafio.
 
