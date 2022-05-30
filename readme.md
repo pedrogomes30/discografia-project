@@ -25,16 +25,20 @@ Para as demais ações você pode adotar o modelo de design que preferir.
 <img src='https://github.com/pedrogomes30/discografia-project/blob/master/Docs/img/interface.png'/>
 
 <h3> Caracteristicas do projeto</h3>
-ambiente do back-end:
-    - PHP com laravel;
-    - banco de dados Mysql;
-    - comunicação via JWT;
 
-ambiente do Front-end:
+- ambiente do back-end:
+    - PHP com laravel 9;
+    - banco de dados Mysql;
+    - comunicação via JWT (?); //validar se existe a necessidade de implementar uma API segura neste desafio.
+
+- ambiente do Front-end:
     - Javascript usando Vue2;
     - interface vuetify2;
     - vuex;
-    - vue-router;
+    - vue-router(SPA);
 
 <h3> Planejamento do banco de dados</h3>
+
+<img src='https://github.com/pedrogomes30/discografia-project/blob/master/Docs/img/discografia-database.png'/>
+
 
