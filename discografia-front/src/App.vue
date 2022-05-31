@@ -18,10 +18,10 @@ export default {
 </script>
 <style>
   #app{
-    padding-left: 7%;
-    padding-right: 7%;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
     height: 100vh;
     width: 100vw;
     background-image: url("./assets/background.png");
