@@ -33,7 +33,7 @@ Para as demais ações você pode adotar o modelo de design que preferir.
 
 - ambiente do Front-end:
     - Javascript usando Vue2;
-    - interface vuetify2;
+    - interface vuetify2(material UI);
     - vuex;
     - vue-router(SPA);
 
