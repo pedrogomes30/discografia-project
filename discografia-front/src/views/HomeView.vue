@@ -1,15 +1,31 @@
 <template>
-  <hello-world />
+  <v-card class='rouded-0'>
+    <AlbumsComponent />
+  </v-card>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+  import AlbumsComponent from '../components/AlbumsComponent'
 
   export default {
     name: 'HomeView',
-
-    components: {
-      HelloWorld,
+    computed:{
+      artist(){
+        return this.$store.state.artist
+      },
     },
+    components: {
+      AlbumsComponent,
+    },
+    onCreate:{
+      updateAlbums(){
+
+      }
+    }
   }
 </script>
+<style >
+  #app{
+    padding:10%
+  }
+</style>

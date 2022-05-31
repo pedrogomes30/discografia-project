@@ -4,6 +4,12 @@ const state = {//ou venda
     }],
     artist:{
         name:'',
+    },
+    trackEdit:{//when open a screen for trackedit
+
+    },
+    albumEdit:{
+
     }
 }
 
