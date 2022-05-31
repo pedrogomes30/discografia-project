@@ -18,8 +18,8 @@ export default {
 </script>
 <style>
   #app{
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 7%;
+    padding-right: 7%;
     padding-top: 5%;
     padding-bottom: 5%;
     height: 100vh;

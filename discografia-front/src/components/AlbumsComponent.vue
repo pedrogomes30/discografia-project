@@ -1,40 +1,39 @@
 <template>
-  <v-container>
-    <v-card-title>
-      <v-row align-self='end'>
-        <v-col cols='2'>
-          <v-img 
-            src="../assets/logo.png"
-            height='75px'
-            widht='50px'>          
-          </v-img>
-        </v-col>
-        <v-col cols='10' align-self="end" style='text-align:end;'>
-          <h2>DISCOGRAFIA</h2>
-        </v-col>
-      </v-row>
-    </v-card-title>
-    <v-card-item>
-      <v-list-item-avatar rouded color="var(--primary">
-          <v-icon color="white"> fa fa-boxes</v-icon>
-      </v-list-item-avatar>
-      <v-spacer></v-spacer>
-      <v-text-field
-      v-model="search"
-      append-icon="mdi-magnify"
-      label="Procure um album/musica"
-      single-line
-      dense
-      @keyup.enter="searchProduct(search)">
-      ></v-text-field>
-    </v-card-item>
-    <!-- LIST ALBUM -->
-  </v-container>
+  <v-card style="background: rgba(255, 255, 255, 0.3);">
+    <v-data-table   
+        :items="albums"
+        :search="search" 
+        :headers="header"
+        fixed-header
+        calculate-widths
+        dense                
+        :items-per-page="50"
+        style="height: 65vh;background-color: rgba(255, 255, 255, 0.3);"
+        class="overflow-y-auto"
+        >
+        <template  v-slot:item="row" >
+            <tr @click='detailTrack(row.item)'>
+                <td><v-icon size="20" color="var(--primary)"   >fa fa-box </v-icon>
+                </td>
+                <td class='ma-0 pa-0 pr-1'>{{row.item.SKU}}</td>
+                <td class='ma-0 pa-0'>{{row.item.descricao}} {{row.item.desc_variacao}}</td>
+                <td class='ma-0 pa-0'><v-chip v-if="haveChips(row.item)" class='ma-1' color="var(--primary)" dark>{{row.item.marca}} {{row.item.fornecedor}}</v-chip></td>
+                <td class='ma-0 pa-0'><v-chip class='ma-1' :color="changeColorCategory(row.item.categoria_produto)">{{row.item.categoria_produto}}</v-chip></td>
+                <td class='ma-0 pa-0 justify-center'><b>{{noPrice(row.item.preco)}}</b></td>
+            </tr>
+        </template>
+    </v-data-table>
+  </v-card>
 </template>
 
 <script>
   export default {
-    name: 'HelloWorld',
+    name: 'AlbumsComponent',
+    computed:{
+      albums(){
+        return this.$store.state.albums
+      },
+    },
     data: () => ({
       search:'',
     }),
