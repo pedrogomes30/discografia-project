@@ -22,7 +22,7 @@ Para as demais ações você pode adotar o modelo de design que preferir.
 
 <h3>exemplo de interface:</h3>
 
-<img src='https://github.com/pedrogomes30/discografia-project/blob/master/Docs/img/interface.png'/>
+<img src='https://github.com/pedrogomes30/discografia-project/blob/master/discografia-front/src/assets/interface.png'/>
 
 <h3> Caracteristicas do projeto</h3>
 
