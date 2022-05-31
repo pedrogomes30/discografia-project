@@ -1,16 +1,25 @@
-const state = {//ou venda
-    albums:[{
-        tracks:[],
-    }],
+const state = {
+    albums:[],
     artist:{
-        name:'',
-    },
-    trackEdit:{//when open a screen for trackedit
-
+        name:'Tião Carreiro',
     },
     albumEdit:{
-
-    }
+        id:'',
+        name:'',
+        artist_id:1,
+        release_date:'',
+    },
+    trackEdit:{//when open a screen for trackedit
+        id:'',
+        name:'',
+        album_order:'',
+        duration:'',
+        album_id:'',
+        artist_id:1,
+    },
+    search:'',
+    albumMenu:false,
+    trackMenu:false,
 }
 
 const actions = { 
@@ -25,7 +34,7 @@ const actions = {
                 headers: myHeaders,
                 redirect: 'follow'
                 };
-            fetch(process.env.BACK_URL+"albums", requestOptions)
+            fetch("http://127.0.0.1:8000/api/v1/albums", requestOptions)
             .then(response => response.text())
             .then(result =>{
                 result = JSON.parse(result);
@@ -38,8 +47,9 @@ const actions = {
 
 const mutations = {
     getAlbums(state,result){
-        console.log(result);
-        state.albuns = result;
+        result = Object.values(result);
+
+        state.albums = result;
     }
 }
 export default {
