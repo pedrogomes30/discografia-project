@@ -41,4 +41,53 @@ Para as demais ações você pode adotar o modelo de design que preferir.
 
 <img src='https://github.com/pedrogomes30/discografia-project/blob/master/Docs/img/discografia-database.png'/>
 
+<h3> instalação</h3>
+
+- ferramentas necessárias:
+    - composer;
+    - PHP 8+;
+    - banco de dados Mysql;
+    - nodeJS;
+
+primeiramente faça o clone deste projeto, o mesmo já possui o front e o back no mesmo repósitório:
+```
+https://github.com/pedrogomes30/discografia-project.git
+```
+<b>Back-End</b><br>
+navege até a pasta ```/discografia-back```, onde será necessário iniciar o composer:
+```
+composer install
+```
+depois, vá até o arquivo ```.env.example```, crie uma cópia e renomeie apenas para ```.env``` e abra-o:
+
+procure a seção do ```.env``` contendo os dados de acesso ao banco, e informe as credenciais do seu banco:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+feito isto, basta iniciar o servidor através do comando, na pasta raiz do back-end:
+```
+php artisan serve
+```
+pronto, o backend da aplicação estará funcionando!
+
+<b>Front-End</b><br>
+
+navegue até a pasta ```/discografia-front```, e então execute o comando abaixo:
+```
+npm i
+```
+navegue até o arquivo ```.env.example``` crie uma cópia e renomeie para ```.env```, e modifique a linha abaixo apra o endereço onde o back-end iniciou:
+```
+BACK_URL= 
+```
+inicie o front com o comando:
+```
+npm run serve
+```
+pronto, sua aplicação estará no ar!
 
