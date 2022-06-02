@@ -91,3 +91,4 @@ npm run serve
 ```
 pronto, sua aplicação estará no ar!
 
+para facilitar os testes de chamada da API, na pasta raiz do projeto tem a arquivo ```DISCOGRAPHY CHALANGE.postman_collection``` com as collections do  ``` POSTMAN ```.
