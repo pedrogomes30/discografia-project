@@ -83,7 +83,7 @@ npm i
 ```
 navegue até o arquivo ```.env.example``` crie uma cópia e renomeie para ```.env```, e modifique a linha abaixo apra o endereço onde o back-end iniciou:
 ```
-BACK_URL= 
+VUE_APP_BACK_URL= 
 ```
 inicie o front com o comando:
 ```
