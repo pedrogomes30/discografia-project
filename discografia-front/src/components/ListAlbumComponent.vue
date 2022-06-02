@@ -2,7 +2,6 @@
   <v-card style="background: rgba(255, 255, 255, 0.0);">
     <v-row class='pa-6' >
       <EditAddAlbumComponent />
-      <EditAddTrackComponent />
       <v-text-field
       v-model="search"
       append-icon="mdi-magnify"
@@ -26,15 +25,17 @@
         class="overflow-y-auto pa-3"
         >
         <template  v-slot:item="row" >
-            <tr @click='detailAlbum(row.item)'>
+            <tr >
                 <td class='ma-0 pa-0 pr-1'>
                   <v-icon size="20" color="black">fa fa-compact-disc</v-icon>
                   {{row.item.name}},{{returnYearRelease(row.item.release_date)}}
+                  <v-icon size="10" color="black" class='pl-3 pr-5' title="excluir ALbum e musicas" @click="deleteAlbum(row.item.id)">fa fa-trash</v-icon>
+                  <EditAddTrackComponent :albumId="row.item.id"/>
                   <v-list dense style="background-color: rgba(255, 255, 255, 0.0);" rounded>
                     <v-list-item
                       v-for="track in row.item.tracks"
                       :key="track.id"
-                      @click='detailTrack(track)'
+                      
                     >
                       <v-list-item-icon>
                         <v-icon size="15" color="black">fa fa-play</v-icon>
@@ -95,24 +96,19 @@ import EditAddTrackComponent from '../components/EditAddTrackComponent.vue'
       }
     },
     beforeMount(){
-        console.log("em dispach")
         this.$store.dispatch('getAlbums');
     },
     methods:{
       returnYearRelease(dateTime){
         return format(new Date(dateTime), "yyyy")
       },
-      detailAlbum(row){
-        return row;
-      },
-      detailTrack(row){
-        return row
-      },
       deleteAlbum(row){
-        return row
+        console.log(row);
+        this.$store.dispatch('delAlbums',row);
       },
       deleteTrack(row){
-        return row
+        console.log(row);
+        this.$store.dispatch('delTrack',row);
       },
     },
     components: {

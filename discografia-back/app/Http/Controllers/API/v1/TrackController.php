@@ -25,7 +25,7 @@ class TrackController extends Controller
             ]);
             $return = Track::create($request->all());
             DB::commit();
-            return $return;
+            return response()->json(['error'=>false,'message'=>'','data'=>$return],200);
         }catch(\Exception $e){
             DB::rollBack();
             return response()->json(['error'=>true,'message'=>$e->getmessage()],500);
@@ -51,7 +51,7 @@ class TrackController extends Controller
             $track->artist_id    = $request['artist_id'];
             $track->save();
             DB::commit();
-            return $track;
+            return response()->json(['error'=>false,'message'=>'','data'=>$track],200);
         }catch(\Exception $e){
             DB::rollBack();
             return response()->json(['error'=>true,'message'=>$e->getmessage()],500);
@@ -73,7 +73,7 @@ class TrackController extends Controller
             DB::beginTransaction();
             $return = Track::destroy($id);
             DB::commit();
-            return $return;
+            return response()->json(['error'=>false,'message'=>'','data'=>$return],200);
         }catch(\Exception $e){
             DB::rollBack();
             return response()->json(['error'=>true,'message'=>$e->getmessage()],500);

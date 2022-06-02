@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Album extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $fillable = [
         'name',
         'release_date',

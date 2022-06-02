@@ -13,29 +13,34 @@ class AlbumController extends Controller
 {
     public static function index()
     {
-        $return = array();
-        foreach(Album::all() as $album){
-            $return[$album->id] = $album;
-            $tracks = Track::where('album_id',$album->id)->get();
-            $return[$album->id]->tracks = $tracks;
+        try{
+            $albums = array();
+            foreach(Album::all() as $album){
+                $tracks                 = Track::where('album_id',$album->id)->get();
+                $album->tracks          = $tracks;
+                $albums[]               = $album;
+            }
+            return response()->json(['error'=>false,'message'=>'','data'=>$albums],200);
+        }catch(\Exception $e){
+            return response()->json(['error'=>true,'message'=>$e->getmessage(),'data'=>''],500);
         }
-        return $return;
     }
     
     public static function store(Request $request)
     {
         try{
-            DB::beginTransacion();
+            DB::beginTransaction();
             $request->validate([
+                'artist_id',
                 'name',
                 'release_date',
             ]);
             $return = Album::create($request->all());
             DB::commit();
-            return $return;
+            return response()->json(['error'=>false,'message'=>'','data'=>$return],200);
         }catch(\Exception $e){
             DB::rollBack();
-            return response()->json(['error'=>true,'message'=>$e->getmessage()],500);
+            return response()->json(['error'=>true,'message'=>$e->getmessage(),'data'=>''],500);
         }
     }
     public static function update(Request $request,$id)
@@ -54,19 +59,19 @@ class AlbumController extends Controller
             $album->artist_id    = $request['artist_id'];
             $album->save();
             DB::commit();
-            return $album;
+            return response()->json(['error'=>false,'message'=>'','data'=>$album],200);
         }catch(\Exception $e){
             DB::rollBack();
-            return response()->json(['error'=>true,'message'=>$e->getmessage()],500);
+            return response()->json(['error'=>true,'message'=>$e->getmessage(),'data'=>''],500);
         }
     }
 
     public static function show($id)
     {
         try{
-            return Album::findOrFail($id);
+            return response()->json(['error'=>false,'message'=>'','data'=>Album::findOrFail($id)],200);
         }catch(\Exception $e){
-            return response()->json(['error'=>true,'message'=>$e->getmessage()],500);
+            return response()->json(['error'=>true,'message'=>$e->getmessage(),'data'=>''],500);
         }
     }
 
@@ -76,7 +81,7 @@ class AlbumController extends Controller
             DB::beginTransaction();
             $return = album::destroy($id);
             DB::commit();
-            return $return;
+            return response()->json(['error'=>false,'message'=>'','data'=>$return],200);
         }catch(\Exception $e){
             DB::rollBack();
             return response()->json(['error'=>true,'message'=>$e->getmessage()],500);

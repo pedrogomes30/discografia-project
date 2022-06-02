@@ -16,7 +16,6 @@
         </v-row>
       </div>
     </div>
-    
     <ListAlbumComponent />
   </v-card>
 </template>

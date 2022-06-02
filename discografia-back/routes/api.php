@@ -15,8 +15,8 @@ Route::prefix('v1')->group(function(){
     Route::delete('/albums/{id}',[AlbumController::class,'delete']);
 
     // track routes
-    Route::get('/tracks',        [TrackController::class,'index']);
-    Route::get('/tracks/{id}',   [TrackController::class,'show']);
+    Route::get('/tracks',         [TrackController::class,'index']);
+    Route::get('/tracks/{id}',    [TrackController::class,'show']);
     Route::post('/tracks',        [TrackController::class,'store']);
     Route::post('/tracks/{id}',   [TrackController::class,'update']);
     Route::delete('/tracks/{id}', [TrackController::class,'delete']);

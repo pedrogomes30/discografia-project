@@ -36,21 +36,13 @@
                   :rules="rules.albumName"
                   prepend-icon='fa fa-compact-disc'>                
                 </v-text-field>
+                <h3 style='text-align:center'><b>Data de lançamento</b></h3>
                 <v-date-picker 
                 v-model="album.release_date"
                 color="black"
                 locale="pt-br"
                 class='pa-4'>
                 </v-date-picker>
-                <!-- <v-text-field
-                  label="lançamento do album"
-                  hide-details="auto"
-                  v-model="album.release_date"
-                  class='pa-2'
-                  light
-                  :rules="rules.albumRelease"
-                  prepend-icon='fa fa-calendar'>                
-                </v-text-field> -->
               </v-list>
               <v-card-actions>
               <v-spacer></v-spacer>
@@ -75,15 +67,19 @@
 export default {
     name:'EditAddAlbumComponent',
     computed:{
-      album(){
-        return this.$store.state.discography.albumEdit
-      },
+      
     },
     data:()=>{
         return {
           search: '',
           addAlbum:false,
           menu:false,
+          album:{
+                id:'',
+                name:'',
+                artist_id:1,
+                release_date:'',
+          },
           rules:{
                 albumName: [
                     val => (val || '').length > 0 || 'necessário informar o nome do album!'
@@ -96,7 +92,15 @@ export default {
     },
     methods:{
         newAlbum(album){
-            console.log(album);
+            this.$store.dispatch('addAlbums',album);
+            this.album = {
+                id:'',
+                name:'',
+                artist_id:1,
+                release_date:'',
+            },
+            this.menu = false;
+
         }
     }
 }
