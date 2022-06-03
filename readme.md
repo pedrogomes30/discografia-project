@@ -91,3 +91,10 @@ npm run serve
 pronto, sua aplicação estará no ar!
 
 para facilitar os testes de chamada da API, na pasta raiz do projeto tem a arquivo ```DISCOGRAPHY CHALANGE.postman_collection``` com as collections do  ``` POSTMAN ```.
+
+<h3> algumas imagens do resultado </h2>
+
+
+<img src='https://github.com/pedrogomes30/discografia-project/blob/master/Docs/img/SS1.png'/>
+<img src='https://github.com/pedrogomes30/discografia-project/blob/master/Docs/img/add%20album.png'/>
+<img src='https://github.com/pedrogomes30/discografia-project/blob/master/Docs/img/adicionar%20track.png'/>
