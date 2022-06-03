@@ -29,7 +29,6 @@ Para as demais ações você pode adotar o modelo de design que preferir.
 - ambiente do back-end:
     - PHP com laravel 9;
     - banco de dados Mysql;
-    - comunicação via JWT (?); //validar se existe a necessidade de implementar uma API segura neste desafio.
 
 - ambiente do Front-end:
     - Javascript usando Vue2;
